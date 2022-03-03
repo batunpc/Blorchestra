@@ -1,0 +1,10 @@
+.card-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  max-width: 270px;
+  box-shadow: 5px 5px 7px 7px rgba(0, 0, 0, 0.371);
+  border: none;
+}

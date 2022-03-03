@@ -1,0 +1,21 @@
+<div class="err-card">
+  <mat-card class="card">
+    <mat-card-subtitle>Something went wrong</mat-card-subtitle>
+    <mat-card-title>There's nothing to see here</mat-card-title>
+    <mat-card-content>
+      {{ err }}
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+      <div class="err-card">
+        <button mat-button>
+          <a href="/"></a>
+          <mat-icon color="accent">home</mat-icon>
+        </button>
+      </div>
+    </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+</div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "seneca-music": {
+    "batufy": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
@@ -41,7 +41,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/seneca-music",
+            "outputPath": "dist/batufy",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -51,6 +51,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -92,10 +93,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "seneca-music:build:production"
+              "browserTarget": "batufy:build:production"
             },
             "development": {
-              "browserTarget": "seneca-music:build:development"
+              "browserTarget": "batufy:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -103,7 +104,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "seneca-music:build"
+            "browserTarget": "batufy:build"
           }
         },
         "test": {
@@ -126,5 +127,5 @@
       }
     }
   },
-  "defaultProject": "seneca-music"
+  "defaultProject": "batufy"
 }

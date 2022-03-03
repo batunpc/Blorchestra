@@ -1,0 +1,43 @@
+<h1>New Releases</h1>
+<p>
+  The following is a list of new releases
+  <br />
+  Click the
+  <strong>album cover</strong>
+  or
+  <strong>artist name</strong>
+  for more information.
+</p>
+
+<br />
+
+<div class="content">
+  <div fxLayout="row wrap" fxLayout.xs="column">
+    <!-- Single "Responsive" Card-->
+    <div *ngFor="let release of releases" fxFlex [style.margin]="'20px'">
+      <div fxFlex [style.margin]="'20px'">
+        <mat-card [style.min-width]="'200px'">
+          <mat-card-header>
+            <mat-card-title>{{ release.name }}</mat-card-title>
+            <mat-card-subtitle>New Release</mat-card-subtitle>
+          </mat-card-header>
+          <img
+            mat-card-image
+            class="album-cover"
+            src="https://via.placeholder.com/640"
+            alt="album art"
+          />
+          <strong>Release Date: </strong>2/22/21<br />
+          <strong>Tracks: </strong>11<br /><br />
+          <mat-card-content>
+            <mat-chip-list aria-label="Artist selection">
+              <mat-chip>This is the Artist's Name</mat-chip>
+              <mat-chip>Possible Second Artist</mat-chip>
+            </mat-chip-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!-- -->
+    </div>
+  </div>
+</div>

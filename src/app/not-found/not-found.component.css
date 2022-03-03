@@ -1,0 +1,11 @@
+.card {
+  max-width: 400px;
+  box-shadow: 5px 5px 7px 7px rgba(0, 0, 0, 0.371);
+  border: none;
+}
+
+.err-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
