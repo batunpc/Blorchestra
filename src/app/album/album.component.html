@@ -1,13 +1,13 @@
-<h1>{{ album?.name }}</h1>
+<h1>{{ album.name }}</h1>
 <p>
-  Full track listing for {{ album?.name }}
+  Full track listing for {{ album.name }}
   <br />
 </p>
 <mat-card>
   <mat-card-content fxLayout="row wrap" fxLayout.xs="column">
     <div fxflex>
       <img
-        src="{{ album?.images[1].url }}"
+        src="{{ album.images[1].url }}"
         alt="album cover"
         [style.margin]="'10px'"
         [style.max-width]="'90%'"
@@ -23,7 +23,7 @@
         <strong>Popularity: </strong>{{ album.popularity }}<br /><br />
         <mat-chip-list aria-label="Artist selection">
           <mat-chip
-            *ngFor="let artist of album?.artists"
+            *ngFor="let artist of album.artists"
             routerLink="/artist/{{ artist.id }}"
             >{{ artist.name }}</mat-chip
           >
@@ -41,7 +41,7 @@
 
 <mat-list>
   <!-- Single "Responsive" Material List Item-->
-  <mat-list-item *ngFor="let track of album?.tracks.items">
+  <mat-list-item *ngFor="let track of album.tracks.items">
     <mat-icon mat-list-icon color="accent">queue_music</mat-icon>
     <div mat-line>
       <mat-card>
