@@ -21,6 +21,5 @@ export class ArtistDiscographyComponent implements OnInit {
           (t) => t.name.toUpperCase() === curValue.name.toUpperCase()
         ) === index
     );
-    console.log(this.albums);
   }
 }
