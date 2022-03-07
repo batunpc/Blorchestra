@@ -34,7 +34,7 @@
           <mat-card-content>
             <mat-chip-list aria-label="Artist selection">
               <mat-chip
-                *ngF="let artist of release.artists"
+                *ngFor="let artist of release.artists"
                 routerLink="/artist/{{ artist.id }}"
                 >{{ artist.name }}</mat-chip
               >
