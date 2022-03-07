@@ -56,7 +56,6 @@ mat-sidenav {
   min-width: 180px !important;
   border-right: 1px solid #eee;
   box-shadow: 6px 0 6px rgba(0, 0, 0, 0.1);
-  /* background-color:rgb(63, 81, 181); */
 }
 
 #push-bottom {

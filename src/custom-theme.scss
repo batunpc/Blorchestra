@@ -20,7 +20,7 @@ $batufy-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$batufy-theme: mat.define-light-theme(
+$batufy-theme: mat.define-dark-theme(
   (
     color: (
       primary: $batufy-primary,
@@ -34,4 +34,4 @@ $batufy-theme: mat.define-light-theme(
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 
-@include mat.all-component-themes($batufy-theme);
+@include mat.all-component-themes($batufy-theme); ;

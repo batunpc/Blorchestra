@@ -28,12 +28,13 @@
             src="{{ release.images[0].url }}"
             alt="album art"
           />
-          <strong>Release Date: </strong>2/22/21<br />
+          <strong>Release Date: </strong
+          >{{ release.release_date | date: "shortDate" }}<br />
           <strong>Tracks: </strong>{{ release.total_tracks }}<br /><br />
           <mat-card-content>
             <mat-chip-list aria-label="Artist selection">
               <mat-chip
-                *ngFor="let artist of release.artists"
+                *ngF="let artist of release.artists"
                 routerLink="/artist/{{ artist.id }}"
                 >{{ artist.name }}</mat-chip
               >
