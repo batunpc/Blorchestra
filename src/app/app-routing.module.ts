@@ -26,7 +26,7 @@ const routes: Routes = [
     component: AboutComponent,
   },
   {
-    path: "",
+    path: "", // initial relative component
     redirectTo: "/new-releases",
     pathMatch: "full",
   },
