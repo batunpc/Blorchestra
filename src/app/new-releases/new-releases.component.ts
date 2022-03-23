@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import data from "../data/NewReleasesAlbums.json";
+
 @Component({
   selector: "app-new-releases",
   templateUrl: "./new-releases.component.html",
@@ -7,7 +8,8 @@ import data from "../data/NewReleasesAlbums.json";
 })
 export class NewReleasesComponent implements OnInit {
   constructor() {}
-  releases: any;
+  releases: Array<any> = [];
+  private newReleasesSub: any;
 
   ngOnInit(): void {
     this.releases = data.albums.items;
