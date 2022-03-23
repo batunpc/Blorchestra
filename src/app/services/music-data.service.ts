@@ -41,7 +41,7 @@ export class MusicDataService {
     return this.spotifyToken.getBearerToken().pipe(
       mergeMap((token) => {
         return this.http.get<any>(
-          `https://api.spotify.com/v1/artist/${id}/albums?include_groups=album,single&limit=50`,
+          `https://api.spotify.com/v1/artists/${id}/albums?include_groups=album,single&limit=50`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

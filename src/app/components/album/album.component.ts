@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import albumData from "../data/SearchResultsAlbum.json";
+import albumData from "../../data/SearchResultsAlbum.json";
 @Component({
   selector: "app-album",
   templateUrl: "./album.component.html",

@@ -1,20 +1,23 @@
-<h1>{{ artist.name }}</h1>
+<h1>{{ artist?.name }}</h1>
 <p>
-  Full discography for {{ artist.name }}
+  Full discography for {{ artist?.name }}
   <br />
   Click the
   <strong>album cover</strong>
   for more information.
 </p>
-<mat-card
-  color="accent"
-  [style.background]="
-    'url(' + artist.images[0].url + ') no-repeat center center'
-  "
-  [style.background-size]="'cover'"
-  [style.height]="'450px'"
->
-</mat-card>
+<ng-container *ngIf="artist">
+  <mat-card
+    color="accent"
+    [style.background]="
+      'url(' + artist.images[0].url + ') no-repeat center center'
+    "
+    [style.background-size]="'cover'"
+    [style.height]="'450px'"
+  >
+  </mat-card>
+</ng-container>
+
 <br /><br />
 <h1>Full Discography</h1>
 

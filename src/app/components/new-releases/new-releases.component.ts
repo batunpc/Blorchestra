@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { MusicDataService } from "../services/music-data.service";
+import { MusicDataService } from "../../services/music-data.service";
 
 @Component({
   selector: "app-new-releases",
@@ -18,6 +18,6 @@ export class NewReleasesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.newReleasesSub.unsubscribe();
+    this.newReleasesSub?.unsubscribe();
   }
 }

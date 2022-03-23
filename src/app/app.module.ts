@@ -30,11 +30,11 @@ import { MatCardModule } from "@angular/material/card";
 import { MatChipsModule } from "@angular/material/chips";
 import { FlexLayoutModule } from "@angular/flex-layout";
 //Components
-import { AboutComponent } from "./about/about.component";
-import { NotFoundComponent } from "./not-found/not-found.component";
-import { NewReleasesComponent } from "./new-releases/new-releases.component";
-import { AlbumComponent } from "./album/album.component";
-import { ArtistDiscographyComponent } from "./artist-discography/artist-discography.component";
+import { AboutComponent } from "./components/about/about.component";
+import { NotFoundComponent } from "./components/not-found/not-found.component";
+import { NewReleasesComponent } from "./components/new-releases/new-releases.component";
+import { AlbumComponent } from "./components/album/album.component";
+import { ArtistDiscographyComponent } from "./components/artist-discography/artist-discography.component";
 @NgModule({
   declarations: [
     AppComponent,
