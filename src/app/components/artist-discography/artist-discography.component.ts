@@ -1,8 +1,11 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import albumData from "../../data/SearchResultsAlbums.json";
 import artistData from "../../data/SearchResultsArtist.json";
-import { MusicDataService } from "../../services/music-data.service";
 import { ActivatedRoute, Params } from "@angular/router";
+import { Subscription } from "rxjs";
+
+//Services
+import { MusicDataService } from "../../services/music-data.service";
 
 @Component({
   selector: "app-artist-discography",
@@ -15,18 +18,11 @@ export class ArtistDiscographyComponent implements OnInit, OnDestroy {
   albums: any;
   artist: any;
 
-  private idSub: any;
+  private artistIdSub!: Subscription;
 
   ngOnInit(): void {
-    /*    this.artist = artistData;
-    this.albums = albumData.items.filter(
-      (curValue, index, self) =>
-        self.findIndex(
-          (t) => t.name.toUpperCase() === curValue.name.toUpperCase()
-        ) === index
-    ); */
     this.route.params.subscribe((params: Params) => {
-      this.idSub = this.data
+      this.artistIdSub = this.data
         .getArtistById(params["id"])
         .subscribe((data) => (this.artist = data));
       this.data.getAlbumsByArtistId(params["id"]).subscribe((data) => {
@@ -41,6 +37,6 @@ export class ArtistDiscographyComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.idSub?.unsubscribe();
+    this.artistIdSub?.unsubscribe();
   }
 }
