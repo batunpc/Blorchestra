@@ -21,14 +21,14 @@ export class ArtistDiscographyComponent implements OnInit, OnDestroy {
   private artistIdSub!: Subscription;
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      this.artistIdSub = this.data
+    this.artistIdSub = this.route.params.subscribe((params: Params) => {
+      this.data
         .getArtistById(params["id"])
         .subscribe((data) => (this.artist = data));
       this.data.getAlbumsByArtistId(params["id"]).subscribe((data) => {
-        this.albums = data.items.filter((el: any, index: any) => {
+        this.albums = data.items.filter((artist: any, index: any) => {
           return (
-            data.items.map((album: any) => album.name).indexOf(el.name) ===
+            data.items.map((album: any) => album.name).indexOf(artist.name) ===
             index
           );
         });

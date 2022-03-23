@@ -35,6 +35,7 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { NewReleasesComponent } from "./components/new-releases/new-releases.component";
 import { AlbumComponent } from "./components/album/album.component";
 import { ArtistDiscographyComponent } from "./components/artist-discography/artist-discography.component";
+import { SearchResultComponent } from './search-result/search-result.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { ArtistDiscographyComponent } from "./components/artist-discography/arti
     NewReleasesComponent,
     AlbumComponent,
     ArtistDiscographyComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,

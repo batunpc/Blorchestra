@@ -20,14 +20,6 @@ export class AlbumComponent implements OnInit, OnDestroy {
   album: any;
   private albumIdSub!: Subscription;
 
-  ngOnInit(): void {
-    this.albumIdSub = this.route.params.subscribe((params: Params) => {
-      this.data.getAlbumById(params["id"]).subscribe((data) => {
-        this.album = data;
-      });
-    });
-  }
-
   addToFavourites(trackID: any) {
     if (this.data.addToFavourites(trackID)) {
       this.snackBar.open("Adding to Favourites...", "Done", { duration: 1500 });
@@ -36,6 +28,14 @@ export class AlbumComponent implements OnInit, OnDestroy {
         duration: 1500,
       });
     }
+  }
+
+  ngOnInit(): void {
+    this.albumIdSub = this.route.params.subscribe((params: Params) => {
+      this.data.getAlbumById(params["id"]).subscribe((data) => {
+        this.album = data;
+      });
+    });
   }
 
   ngOnDestroy(): void {

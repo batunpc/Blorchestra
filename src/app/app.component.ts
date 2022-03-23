@@ -6,13 +6,22 @@
  * Name: Batuhan Ipci Student ID: 130971203 Date: 07/MAR/2022
  * ********************************************************************************/
 
-import { Component } from "@angular/core";
-
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  constructor(private router: Router) {}
   title = "batufy";
+  searchString: string = "";
+  ngOnInit(): void {}
+  handleSearch() {
+    this.router.navigate(["/search"], {
+      queryParams: { q: this.searchString },
+    });
+    this.searchString = "";
+  }
 }

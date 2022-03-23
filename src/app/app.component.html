@@ -41,8 +41,15 @@
         <div>
           <mat-form-field appearance="fill">
             <mat-label>Artist</mat-label>
-            <input matInput type="text" />
-            <mat-icon color="accent" matSuffix>search</mat-icon>
+            <form (ngSubmit)="handleSearch()">
+              <input
+                matInput
+                type="text"
+                name="searchString"
+                [(ngModel)]="searchString"
+              />
+            </form>
+            <mat-icon matSuffix>search</mat-icon>
           </mat-form-field>
         </div>
 

@@ -7,6 +7,7 @@ import { ArtistDiscographyComponent } from "./components/artist-discography/arti
 import { AlbumComponent } from "./components/album/album.component";
 import { AboutComponent } from "./components/about/about.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
+import { SearchResultComponent } from "./search-result/search-result.component";
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: "about",
     component: AboutComponent,
+  },
+  {
+    path: "search",
+    component: SearchResultComponent,
   },
   {
     path: "", // initial relative component
