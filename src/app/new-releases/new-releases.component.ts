@@ -1,17 +1,23 @@
-import { Component, OnInit, Input } from "@angular/core";
-import data from "../data/NewReleasesAlbums.json";
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { MusicDataService } from "../services/music-data.service";
 
 @Component({
   selector: "app-new-releases",
   templateUrl: "./new-releases.component.html",
   styleUrls: ["./new-releases.component.css"],
 })
-export class NewReleasesComponent implements OnInit {
-  constructor() {}
+export class NewReleasesComponent implements OnInit, OnDestroy {
+  constructor(private data: MusicDataService) {}
   releases: Array<any> = [];
   private newReleasesSub: any;
 
   ngOnInit(): void {
-    this.releases = data.albums.items;
+    this.newReleasesSub = this.data
+      .getNewReleases()
+      .subscribe((result) => (this.releases = result.albums.items));
+  }
+
+  ngOnDestroy(): void {
+    this.newReleasesSub.unsubscribe();
   }
 }

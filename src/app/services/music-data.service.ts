@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
-import { environment } from "./../environments/environment";
+import { environment } from "../../environments/environment";
 
 import { SpotifyTokenService } from "./spotify-token.service";
 
@@ -40,9 +40,12 @@ export class MusicDataService {
   getAlbumsByArtistId(id: any): Observable<SpotifyApi.ArtistsAlbumsResponse> {
     return this.spotifyToken.getBearerToken().pipe(
       mergeMap((token) => {
-        return this.http.get<any>(`https://api.spotify.com/v1/artist/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        return this.http.get<any>(
+          `https://api.spotify.com/v1/artist/${id}/albums?include_groups=album,single&limit=50`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
       })
     );
   }
