@@ -109,3 +109,18 @@ mat-sidenav {
 .mat-sidenav-content .mat-list-item {
   height: auto !important;
 }
+
+.audio-card {
+  width: 100%;
+  margin: 0 20px;
+}
+.fav-button {
+  margin: 0 20px;
+}
+
+.fav-button:hover,
+.fav-button:focus {
+  box-shadow: 1px 1px 1px 1px #00e676;
+  transform: translateY(-0.25em);
+  transition: ease-in-out 0.25s;
+}
