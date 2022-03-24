@@ -8,6 +8,7 @@ import { AlbumComponent } from "./components/album/album.component";
 import { AboutComponent } from "./components/about/about.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { SearchResultComponent } from "./search-result/search-result.component";
+import { FavoritesComponent } from "./favorites/favorites.component";
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: "search",
     component: SearchResultComponent,
+  },
+  {
+    path: "favorites",
+    component: FavoritesComponent,
   },
   {
     path: "", // initial relative component

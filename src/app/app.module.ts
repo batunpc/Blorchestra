@@ -36,6 +36,7 @@ import { NewReleasesComponent } from "./components/new-releases/new-releases.com
 import { AlbumComponent } from "./components/album/album.component";
 import { ArtistDiscographyComponent } from "./components/artist-discography/artist-discography.component";
 import { SearchResultComponent } from './search-result/search-result.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
     AlbumComponent,
     ArtistDiscographyComponent,
     SearchResultComponent,
+    FavoritesComponent,
   ],
   imports: [
     BrowserModule,

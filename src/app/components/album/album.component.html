@@ -48,11 +48,10 @@
 <mat-list>
   <!-- Single "Responsive" Material List Item-->
   <mat-list-item *ngFor="let track of album?.tracks.items">
-    <mat-icon mat-list-icon color="accent" (click)="addToFavourites(track.id)"
-      >queue_music</mat-icon
-    >
-
-    <div mat-line>
+    <button mat-mini-fab (click)="addToFavourites(track.id)" class="fav-button">
+      <mat-icon>queue_music</mat-icon>
+    </button>
+    <div class="audio-card">
       <mat-card>
         <mat-card-content>
           {{ track.track_number }}: {{ track.name }} -
@@ -63,6 +62,7 @@
           </div>
         </mat-card-content>
       </mat-card>
+      <br />
     </div>
   </mat-list-item>
 </mat-list>

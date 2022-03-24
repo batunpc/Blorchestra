@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import albumData from "../../data/SearchResultsAlbum.json";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { Subscription } from "rxjs";
 import { ActivatedRoute, Params } from "@angular/router";

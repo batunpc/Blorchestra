@@ -1,6 +1,12 @@
-mat-list-item .mat-icon:hover {
+mat-list mat-icon:hover {
   cursor: pointer;
 }
+
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
+
 .audio-card {
   width: 100%;
 }

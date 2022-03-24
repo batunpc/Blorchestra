@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import albumData from "../../data/SearchResultsAlbums.json";
-import artistData from "../../data/SearchResultsArtist.json";
+
 import { ActivatedRoute, Params } from "@angular/router";
 import { Subscription } from "rxjs";
 

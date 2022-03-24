@@ -1,0 +1,55 @@
+<h1>Favourites</h1>
+<h2>The following is a list of your favourite songs from various artists.</h2>
+
+<h3>
+  Click the &nbsp;<mat-icon color="accent" mat-list-icon>queue_music</mat-icon
+  >&nbsp; icon to <strong>remove</strong> a song from your list
+</h3>
+
+<br />
+
+<mat-list>
+  <!-- single "favourite" card -->
+  <mat-list-item *ngFor="let track of favorites">
+    <button
+      mat-mini-fab
+      (click)="removeFromFavorites(track.id)"
+      class="fav-button"
+    >
+      <mat-icon>queue_music</mat-icon>
+    </button>
+
+    <div class="audio-card">
+      <mat-card>
+        <mat-card-content
+          ><strong>{{ track.name }}</strong> - {{ track.duration_ms
+          }}<br /><br />
+          Artist(s):
+          <mat-chip
+            *ngFor="let artist of track.artists"
+            routerLink="/artist/{{ artist.id }}"
+            >&nbsp;{{ artist.name }} &nbsp;</mat-chip
+          >
+
+          <br /><br />
+
+          <span> <i>Album :</i> &nbsp;&nbsp;</span>
+
+          <a
+            mat-flat-button
+            color="accent"
+            routerLink="/album/{{ track.album.id }}"
+            >{{ track.album.name }}</a
+          >
+
+          <br />
+          <div *ngIf="track.preview_url">
+            <br /><audio controls [src]="track.preview_url"></audio>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <br />
+    </div>
+  </mat-list-item>
+  <!-- -->
+</mat-list>
