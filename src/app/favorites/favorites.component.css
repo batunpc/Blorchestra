@@ -10,6 +10,9 @@ mat-list mat-icon:hover {
 .audio-card {
   width: 100%;
 }
+mat-chip {
+  margin: 0 5px;
+}
 .fav-button {
   margin: 0 20px;
 }
