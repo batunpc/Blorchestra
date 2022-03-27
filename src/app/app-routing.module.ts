@@ -7,8 +7,8 @@ import { ArtistDiscographyComponent } from "./components/artist-discography/arti
 import { AlbumComponent } from "./components/album/album.component";
 import { AboutComponent } from "./components/about/about.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
-import { SearchResultComponent } from "./search-result/search-result.component";
-import { FavoritesComponent } from "./favorites/favorites.component";
+import { SearchResultComponent } from "./components/search-result/search-result.component";
+import { FavoritesComponent } from "./components/favorites/favorites.component";
 
 const routes: Routes = [
   {

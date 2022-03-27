@@ -35,8 +35,8 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { NewReleasesComponent } from "./components/new-releases/new-releases.component";
 import { AlbumComponent } from "./components/album/album.component";
 import { ArtistDiscographyComponent } from "./components/artist-discography/artist-discography.component";
-import { SearchResultComponent } from './search-result/search-result.component';
-import { FavoritesComponent } from './favorites/favorites.component';
+import { SearchResultComponent } from "./components/search-result/search-result.component";
+import { FavoritesComponent } from "./components/favorites/favorites.component";
 @NgModule({
   declarations: [
     AppComponent,

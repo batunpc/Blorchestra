@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
 import { Subscription } from "rxjs";
 //Services
-import { MusicDataService } from "../services/music-data.service";
+import { MusicDataService } from "../../services/music-data.service";
 @Component({
   selector: "app-search-result",
   templateUrl: "./search-result.component.html",

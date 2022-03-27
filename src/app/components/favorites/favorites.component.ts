@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from "rxjs";
 //Services
-import { MusicDataService } from "../services/music-data.service";
+import { MusicDataService } from "../../services/music-data.service";
 @Component({
   selector: "app-favorites",
   templateUrl: "./favorites.component.html",
