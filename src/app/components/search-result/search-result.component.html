@@ -7,10 +7,15 @@
 <br />
 
 <div class="content">
-  <div fxLayout="row wrap" fxLayout.xs="column">
+  <div fxLayout="row wrap" fxLayout.xs="column" class="card-box">
     <!-- single result "card"-->
-    <div fxFlex [style.margin]="'20px'" *ngFor="let artist of results">
-      <mat-card [style.min-width]="'200px'">
+    <div
+      class="card-box"
+      fxFlex
+      [style.margin]="'20px'"
+      *ngFor="let artist of results"
+    >
+      <mat-card class="card">
         <mat-card-header>
           <mat-card-title>{{ artist.name }}</mat-card-title>
           <mat-card-subtitle>Artist</mat-card-subtitle>

@@ -124,3 +124,24 @@ mat-sidenav {
   transform: translateY(-0.25em);
   transition: ease-in-out 0.25s;
 }
+.card-box .card {
+  min-width: 200px;
+  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.371);
+  border: none;
+}
+.card-box mat-card {
+  border-radius: 10px;
+  object-fit: cover;
+  cursor: pointer;
+  pointer-events: all;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.card-box mat-card img {
+  transition: transform 1s;
+}
+
+.card-box mat-card:hover img {
+  transform: scale(1.06);
+}

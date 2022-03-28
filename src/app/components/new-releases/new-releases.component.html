@@ -11,12 +11,12 @@
 
 <br />
 
-<div class="content">
+<div>
   <div fxLayout="row wrap" fxLayout.xs="column">
     <!-- Single "Responsive" Card-->
     <div *ngFor="let release of releases" fxFlex [style.margin]="'20px'">
-      <div fxFlex [style.margin]="'20px'">
-        <mat-card [style.min-width]="'200px'">
+      <div fxFlex [style.margin]="'20px'" class="card-box">
+        <mat-card class="card">
           <mat-card-header>
             <mat-card-title>{{ release.name }}</mat-card-title>
             <mat-card-subtitle>New Release</mat-card-subtitle>
