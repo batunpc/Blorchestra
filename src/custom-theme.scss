@@ -9,6 +9,7 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
+$background-color: rgb(36, 39, 41);
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
@@ -18,20 +19,28 @@ $batufy-accent: mat.define-palette(mat.$green-palette, A700);
 // The warn palette is optional (defaults to red).
 $batufy-warn: mat.define-palette(mat.$red-palette);
 
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
 $batufy-theme: mat.define-dark-theme(
+  $batufy-primary,
+  $batufy-accent,
+  $batufy-warn
+);
+
+$batufy-background: map-get($batufy-theme, "background");
+$batufy-background: map-merge(
+  $batufy-background,
   (
-    color: (
-      primary: $batufy-primary,
-      accent: $batufy-accent,
-      warn: $batufy-warn,
-    ),
+    "background": $background-color,
+  )
+);
+$batufy-theme: map-merge(
+  $batufy-theme,
+  (
+    "background": $batufy-background,
   )
 );
 
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
+@include mat.all-component-themes($batufy-theme);
 
-@include mat.all-component-themes($batufy-theme); ;
+body {
+  background-color: #628cc9;
+}

@@ -1,14 +1,6 @@
-html,
 body {
+  margin: 0;
   height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-body {
-  margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 14px;
 }
@@ -47,7 +39,6 @@ mat-chip:hover {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #fafafa;
 }
 
 /*Set sidenav width*/
@@ -74,7 +65,9 @@ mat-sidenav {
 .bottom-spacer {
   height: 80px;
 }
-
+.artist-search-field mat-label {
+  color: #fff;
+}
 @media only screen and (max-width: 600px) {
   mat-sidenav {
     position: fixed !important;
@@ -142,9 +135,6 @@ mat-sidenav {
   transition: transform 1s;
 }
 
-.card-box mat-card:hover img {
-  transform: scale(1.06);
-}
-.card-box:hover mat-card:not(:hover) {
-  filter: grayscale(1) blur(1px);
+.card-box mat-card img:hover {
+  transform: scale(1.02);
 }
