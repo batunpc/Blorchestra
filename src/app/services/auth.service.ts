@@ -16,24 +16,19 @@ import { RegisterUser } from "../RegisterUser";
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  /*   public getToken(): string {
-    return localStorage.getItem("access_token");
+  public getToken(): string {
+    return localStorage.getItem("access_token") || "{}";
   }
 
   public readToken(): User {
     const token = localStorage.getItem("access_token");
-    return helper.decodeToken(token);
-  } */
+    return helper.decodeToken("acess_token") || "{}";
+  }
 
   public isAuthenticated(): Boolean {
     const token = localStorage.getItem("access_token");
-    if (token) {
-      //console.log('token exists');
-      return true;
-    } else {
-      //console.log('no token');
-      return false;
-    }
+    if (token) return true;
+    else return false;
   }
 
   public login(user: User): Observable<any> {
