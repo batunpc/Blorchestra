@@ -5,7 +5,7 @@ import { MusicDataService } from "../../services/music-data.service";
 @Component({
   selector: "app-new-releases",
   templateUrl: "./new-releases.component.html",
-  styleUrls: ["./new-releases.component.css"],
+  styleUrls: ["./new-releases.component.scss"],
 })
 export class NewReleasesComponent implements OnInit, OnDestroy {
   constructor(private data: MusicDataService) {}

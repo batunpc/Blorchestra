@@ -7,7 +7,7 @@ import { MusicDataService } from "src/app/services/music-data.service";
 @Component({
   selector: "app-album",
   templateUrl: "./album.component.html",
-  styleUrls: ["./album.component.css"],
+  styleUrls: ["./album.component.scss"],
 })
 export class AlbumComponent implements OnInit, OnDestroy {
   constructor(

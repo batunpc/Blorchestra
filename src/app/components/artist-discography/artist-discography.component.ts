@@ -9,7 +9,7 @@ import { MusicDataService } from "../../services/music-data.service";
 @Component({
   selector: "app-artist-discography",
   templateUrl: "./artist-discography.component.html",
-  styleUrls: ["./artist-discography.component.css"],
+  styleUrls: ["./artist-discography.component.scss"],
 })
 export class ArtistDiscographyComponent implements OnInit, OnDestroy {
   constructor(private data: MusicDataService, private route: ActivatedRoute) {}
