@@ -38,7 +38,7 @@ import { AlbumComponent } from "./components/album/album.component";
 import { ArtistDiscographyComponent } from "./components/artist-discography/artist-discography.component";
 import { SearchResultComponent } from "./components/search-result/search-result.component";
 import { FavoritesComponent } from "./components/favorites/favorites.component";
-import { RegisterComponentComponent } from "./components/register-component/register-component.component";
+import { RegisterComponent } from "./components/register/register.component";
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { RegisterComponentComponent } from "./components/register-component/regi
     ArtistDiscographyComponent,
     SearchResultComponent,
     FavoritesComponent,
-    RegisterComponentComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
