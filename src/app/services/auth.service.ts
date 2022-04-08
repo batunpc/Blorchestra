@@ -16,13 +16,14 @@ import { RegisterUser } from "../helper/RegisterUser";
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  public getToken(): string {
-    return localStorage.getItem("access_token") || "{}";
+  public getToken(): any {
+    const token = localStorage.getItem("access_token");
+    return token;
   }
 
   public readToken(): User {
     const token = localStorage.getItem("access_token");
-    return helper.decodeToken("acess_token") || "{}";
+    return helper.decodeToken(token!);
   }
 
   public isAuthenticated(): Boolean {
@@ -40,6 +41,7 @@ export class AuthService {
   }
 
   public register(registerUser: RegisterUser): Observable<any> {
-    return this.http.post(environment.userAPIBase + "/register", registerUser);
+    const url = `${environment.userAPIBase}/register`;
+    return this.http.post<any>(url, registerUser);
   }
 }

@@ -9,7 +9,7 @@ import { MusicDataService } from "../../services/music-data.service";
 })
 export class FavoritesComponent implements OnInit, OnDestroy {
   favorites: Array<any> = [];
-  private favSub!: Subscription;
+  private favSub?: Subscription;
 
   constructor(private data: MusicDataService) {}
   removeFromFavorites(id: any) {
@@ -19,7 +19,7 @@ export class FavoritesComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     this.favSub = this.data
-      .getFavorites()
+      .getFavourites()
       .subscribe((data) => (this.favorites = data.tracks));
   }
 

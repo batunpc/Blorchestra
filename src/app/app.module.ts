@@ -13,8 +13,9 @@ import { AppComponent } from "./app.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FlexLayoutModule } from "@angular/flex-layout";
 
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
+import { InterceptTokenService } from "../app/services/intercept-token.service";
 
 //Angular material and flex layout modules
 import { MatIconModule } from "@angular/material/icon";
@@ -74,7 +75,13 @@ import { LoginComponent } from "./components/login/login.component";
     FormsModule,
     MatSnackBarModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptTokenService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

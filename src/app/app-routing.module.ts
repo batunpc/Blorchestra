@@ -33,7 +33,7 @@ const routes: Routes = [
     component: SearchResultComponent,
   },
   {
-    path: "favorites",
+    path: "favourites",
     component: FavoritesComponent,
   },
   {

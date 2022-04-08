@@ -23,6 +23,7 @@
     "@angular/router": "~13.2.0",
     "@auth0/angular-jwt": "^5.0.2",
     "angular-jwt": "github:auth0/angular-jwt",
+    "jwt-decode": "^3.1.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

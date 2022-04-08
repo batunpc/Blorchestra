@@ -20,13 +20,18 @@ export class AlbumComponent implements OnInit, OnDestroy {
   private albumIdSub!: Subscription;
 
   addToFavourites(trackID: any) {
-    if (this.data.addToFavourites(trackID)) {
-      this.snackBar.open("Adding to Favourites...", "Done", { duration: 1500 });
-    } else {
-      this.snackBar.open("Unable to add song to Favourites", "Done", {
-        duration: 1500,
-      });
-    }
+    this.data.addToFavourites(trackID).subscribe(
+      (success) => {
+        this.snackBar.open("Adding to Favourites...", "Done", {
+          duration: 1500,
+        });
+      },
+      (err) => {
+        this.snackBar.open("Unable to add song to Favourites", "Done", {
+          duration: 1500,
+        });
+      }
+    );
   }
 
   ngOnInit(): void {
