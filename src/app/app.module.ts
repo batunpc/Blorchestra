@@ -39,6 +39,7 @@ import { ArtistDiscographyComponent } from "./components/artist-discography/arti
 import { SearchResultComponent } from "./components/search-result/search-result.component";
 import { FavoritesComponent } from "./components/favorites/favorites.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { LoginComponent } from "./components/login/login.component";
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { RegisterComponent } from "./components/register/register.component";
     SearchResultComponent,
     FavoritesComponent,
     RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

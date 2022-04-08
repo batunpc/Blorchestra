@@ -7,8 +7,8 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 
 const helper = new JwtHelperService();
 
-import { User } from "../User";
-import { RegisterUser } from "../RegisterUser";
+import { User } from "../helper/User";
+import { RegisterUser } from "../helper/RegisterUser";
 
 @Injectable({
   providedIn: "root",

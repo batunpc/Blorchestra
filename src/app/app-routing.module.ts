@@ -10,6 +10,7 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { SearchResultComponent } from "./components/search-result/search-result.component";
 import { FavoritesComponent } from "./components/favorites/favorites.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { LoginComponent } from "./components/login/login.component";
 const routes: Routes = [
   {
     path: "new-releases",
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: "register",
     component: RegisterComponent,
+  },
+  {
+    path: "login",
+    component: LoginComponent,
   },
   {
     path: "", // initial relative component

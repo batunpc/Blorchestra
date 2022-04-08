@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
-
-import { RegisterUser } from "src/app/RegisterUser";
+import { RegisterUser } from "src/app/helper/RegisterUser";
 import { AuthService } from "src/app/services/auth.service";
 
 @Component({
@@ -13,12 +12,7 @@ export class RegisterComponent implements OnInit {
   constructor(private auth: AuthService) {}
 
   registerUser!: RegisterUser;
-  /*   registerUser = {
-    userName: "",
-    password: "",
-    password2: "",
-  }; */
-  warning = "";
+  warning: string = "";
   success: boolean = false;
   loading: boolean = false;
 
@@ -27,10 +21,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void {
-    form.valid
-      ? console.log("Data: ", this.registerUser)
-      : console.log("INVALID");
-
     if (form.valid) {
       this.loading = true;
       this.auth.register(this.registerUser).subscribe({

@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-content>
     {{ registerUser | json }}
-    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
       <h2>Register</h2>
       <mat-error *ngIf="warning"> {{ warning }}</mat-error
       ><br />
@@ -13,6 +13,7 @@
           [(ngModel)]="registerUser.userName"
           required
           autofocus
+          autocomplete="off"
         />
         <mat-error>Please provide a valid user name</mat-error> </mat-form-field
       ><br />
@@ -30,6 +31,7 @@
       <mat-form-field class="full-width-input">
         <input
           matInput
+          color="accent"
           type="password"
           placeholder="Password"
           name="password2"
@@ -40,7 +42,7 @@
       ><br />
       <button
         mat-raised-button
-        color="primary"
+        color="accent"
         type="submit"
         [disabled]="loading ? true : false"
       >
