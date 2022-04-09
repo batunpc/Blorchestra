@@ -80,31 +80,28 @@ export class MusicDataService {
     return this.http
       .delete<[String]>(`${environment.userAPIBase}/favourites/${id}`)
       .pipe(
-        mergeMap((favouritesArray) => {
-          favouritesArray.splice(favouritesArray.indexOf(id), 1);
+        mergeMap(() => {
           return this.getFavourites();
         })
       );
   }
 
-  getFavourites(): Observable<any> {
+  getFavourites(): Observable<SpotifyApi.MultipleTracksResponse> {
     return this.http
       .get<[String]>(`${environment.userAPIBase}/favourites/`)
       .pipe(
         mergeMap((favouritesArray) => {
-          return this.spotifyToken.getBearerToken().pipe(
-            mergeMap((token) => {
-              if (favouritesArray.length <= 0) {
-                return new Observable((data) => {
-                  data.next({ tracks: [] });
-                });
-              } else
+          if (favouritesArray.length > 0) {
+            return this.spotifyToken.getBearerToken().pipe(
+              mergeMap((token) => {
                 return this.http.get<any>(
                   `https://api.spotify.com/v1/tracks?ids=${favouritesArray.join()}`,
                   { headers: { Authorization: `Bearer ${token}` } }
                 );
-            })
-          );
+              })
+            );
+          }
+          return new Observable((o) => o.next({ tracks: [] }));
         })
       );
   }

@@ -12,17 +12,17 @@ export class FavoritesComponent implements OnInit, OnDestroy {
   private favSub?: Subscription;
 
   constructor(private data: MusicDataService) {}
-  removeFromFavorites(id: any) {
-    this.favSub = this.data
-      .removeFromFavourites(id)
-      .subscribe((data) => (this.favorites = data.tracks));
-  }
+
   ngOnInit(): void {
     this.favSub = this.data
       .getFavourites()
       .subscribe((data) => (this.favorites = data.tracks));
   }
-
+  removeFromFavourites(id: any) {
+    this.favSub = this.data
+      .removeFromFavourites(id)
+      .subscribe((data) => (this.favorites = data.tracks));
+  }
   ngOnDestroy(): void {
     this.favSub?.unsubscribe();
   }

@@ -1,7 +1,10 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
-//Components
+// Services
+import { GuardAuthService } from "../app/services/guard-auth.service";
+
+// Components
 import { NewReleasesComponent } from "./components/new-releases/new-releases.component";
 import { ArtistDiscographyComponent } from "./components/artist-discography/artist-discography.component";
 import { AlbumComponent } from "./components/album/album.component";
@@ -11,48 +14,38 @@ import { SearchResultComponent } from "./components/search-result/search-result.
 import { FavoritesComponent } from "./components/favorites/favorites.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { LoginComponent } from "./components/login/login.component";
+
 const routes: Routes = [
   {
     path: "new-releases",
     component: NewReleasesComponent,
+    canActivate: [GuardAuthService],
   },
   {
     path: "artist/:id",
     component: ArtistDiscographyComponent,
+    canActivate: [GuardAuthService],
   },
   {
     path: "album/:id",
     component: AlbumComponent,
+    canActivate: [GuardAuthService],
   },
-  {
-    path: "about",
-    component: AboutComponent,
-  },
+  { path: "about", component: AboutComponent, canActivate: [GuardAuthService] },
   {
     path: "search",
     component: SearchResultComponent,
+    canActivate: [GuardAuthService],
   },
   {
     path: "favourites",
     component: FavoritesComponent,
+    canActivate: [GuardAuthService],
   },
-  {
-    path: "register",
-    component: RegisterComponent,
-  },
-  {
-    path: "login",
-    component: LoginComponent,
-  },
-  {
-    path: "", // initial relative component
-    redirectTo: "/new-releases",
-    pathMatch: "full",
-  },
-  {
-    path: "**",
-    component: NotFoundComponent,
-  },
+  { path: "register", component: RegisterComponent },
+  { path: "login", component: LoginComponent },
+  { path: "", redirectTo: "/new-releases", pathMatch: "full" },
+  { path: "**", component: NotFoundComponent },
 ];
 
 @NgModule({

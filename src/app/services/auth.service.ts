@@ -33,7 +33,8 @@ export class AuthService {
   }
 
   public login(user: User): Observable<any> {
-    return this.http.post(environment.userAPIBase + "/login", user);
+    const url = `${environment.userAPIBase}/login`;
+    return this.http.post<any>(url, user);
   }
 
   public logout() {

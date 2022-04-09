@@ -20,19 +20,21 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: NgForm): void {
-    this.loading = true;
-    this.auth.login(this.user).subscribe({
-      next: (success) => {
-        this.loading = false;
-        localStorage.setItem("access_token", success.token);
-        //localStorage["accessToken"] = success.token;
-        this.router.navigate(["new-releases"]);
-        console.log(success.token);
-      },
-      error: (err) => {
-        this.loading = false;
-        this.warning = err.error.message;
-      },
-    });
+    if (form.valid) {
+      this.loading = true;
+      this.auth.login(this.user).subscribe({
+        next: (success) => {
+          this.loading = false;
+          localStorage.setItem("access_token", success.token);
+          //localStorage["access_token"] = success.token;
+          this.router.navigate(["new-releases"]);
+          console.log(success.token);
+        },
+        error: (err) => {
+          this.loading = false;
+          this.warning = err.error.message;
+        },
+      });
+    }
   }
 }

@@ -15,13 +15,13 @@ import { AuthService } from "../app/services/auth.service";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
-  searchString: string = "";
-
-  public token: any;
-
   constructor(private router: Router, private auth: AuthService) {}
 
-  ngOnInit() {
+  title = "web422-a6";
+  searchString: string = "";
+  token: any;
+
+  ngOnInit(): void {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
         this.token = this.auth.readToken();
@@ -31,13 +31,12 @@ export class AppComponent implements OnInit {
 
   handleSearch() {
     this.router.navigate(["/search"], {
-      queryParams: {
-        q: `${this.searchString}`,
-      },
+      queryParams: { q: this.searchString },
     });
+    this.searchString = "";
   }
 
-  logout() {
+  logout(): void {
     localStorage.clear();
     this.router.navigate(["/login"]);
   }
