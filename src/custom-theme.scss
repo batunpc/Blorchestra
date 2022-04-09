@@ -40,7 +40,3 @@ $batufy-theme: map-merge(
 );
 
 @include mat.all-component-themes($batufy-theme);
-
-body {
-  background-color: #628cc9;
-}
