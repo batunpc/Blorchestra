@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-content>
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-      {{ user | json }}
+      <!-- {{ user | json }} -->
       <h2>Log In</h2>
       <mat-error *ngIf="warning">{{ warning }}</mat-error
       ><br />
