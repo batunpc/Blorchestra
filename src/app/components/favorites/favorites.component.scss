@@ -1,3 +1,28 @@
-mat-chip {
+.audio-card mat-chip {
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  padding: 2px 12px;
+  border-radius: 16px;
+  align-items: center;
   margin: 0 5px;
+  line-height: 2;
+}
+
+.audio-card mat-chip:hover,
+.audio-card mat-chip:focus,
+.audio-card mat-chip:active {
+  background-color: #535151;
+}
+
+.audio-card a {
+  transition: 0.5s;
+  transform: scale(1);
+}
+.audio-card a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 9px #00c853;
+}
+
+mat-card-content strong {
+  color: #00c853;
 }
