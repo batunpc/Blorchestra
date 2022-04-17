@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
     if (form.valid) {
       this.loading = true;
       this.auth.register(this.registerUser).subscribe({
-        next: (success) => {
+        next: () => {
           this.success = true;
           this.warning = "";
           this.loading = false;
