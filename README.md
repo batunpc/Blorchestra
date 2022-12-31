@@ -1,6 +1,6 @@
 # Batufy 🐼
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+> Batufy aims to increase your music quality by allowing users search for an artist, view related albums and song titles, add songs to a "favourites" list, as well as play small audio snippets if audio samples are available.
 
 ## Development server👾
 
