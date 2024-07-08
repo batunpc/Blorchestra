@@ -1,13 +1,12 @@
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { Injectable } from "@angular/core";
-
-import { SpotifyTokenService } from "./spotify-token.service";
-import { environment } from "src/environments/environment";
-import { mergeMap } from "rxjs/operators";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { SpotifyTokenService } from './spotify-token.service';
+import { environment } from 'src/environments/environment';
+import { mergeMap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class MusicDataService {
   constructor(
@@ -15,21 +14,34 @@ export class MusicDataService {
     private http: HttpClient
   ) {}
 
+  private getHeaders(token?: string): HttpHeaders {
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+
+    return headers;
+  }
+
   getNewReleases(): Observable<SpotifyApi.ListOfNewReleasesResponse> {
     return this.spotifyToken.getBearerToken().pipe(
       mergeMap((token) => {
         return this.http.get<SpotifyApi.ListOfNewReleasesResponse>(
-          "https://api.spotify.com/v1/browse/new-releases",
-          { headers: { Authorization: `Bearer ${token}` } }
+          'https://api.spotify.com/v1/browse/new-releases',
+          { headers: this.getHeaders(token) }
         );
       })
     );
   }
+
   getArtistById(id: any): Observable<SpotifyApi.SingleArtistResponse> {
     return this.spotifyToken.getBearerToken().pipe(
       mergeMap((token) => {
         return this.http.get<any>(`https://api.spotify.com/v1/artists/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: this.getHeaders(token),
         });
       })
     );
@@ -41,7 +53,7 @@ export class MusicDataService {
         return this.http.get<any>(
           `https://api.spotify.com/v1/artists/${id}/albums?include_groups=album,single&limit=50`,
           {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: this.getHeaders(token),
           }
         );
       })
@@ -52,7 +64,7 @@ export class MusicDataService {
     return this.spotifyToken.getBearerToken().pipe(
       mergeMap((token) => {
         return this.http.get<any>(`https://api.spotify.com/v1/albums/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: this.getHeaders(token),
         });
       })
     );
@@ -65,7 +77,7 @@ export class MusicDataService {
       mergeMap((token) => {
         return this.http.get<any>(
           `https://api.spotify.com/v1/search?q=${searchString}&type=artist&limit=50`,
-          { headers: { Authorization: `Bearer ${token}` } }
+          { headers: this.getHeaders(token) }
         );
       })
     );
@@ -73,12 +85,14 @@ export class MusicDataService {
 
   addToFavourites(id: string): Observable<[String]> {
     const url = `${environment.userAPIBase}/favourites/${id}`;
-    return this.http.put<[String]>(url, {});
+    return this.http.put<[String]>(url, {}, { headers: this.getHeaders() });
   }
 
   removeFromFavourites(id: string): Observable<any> {
     return this.http
-      .delete<[String]>(`${environment.userAPIBase}/favourites/${id}`)
+      .delete<[String]>(`${environment.userAPIBase}/favourites/${id}`, {
+        headers: this.getHeaders(),
+      })
       .pipe(
         mergeMap(() => {
           return this.getFavourites();
@@ -88,7 +102,9 @@ export class MusicDataService {
 
   getFavourites(): Observable<SpotifyApi.MultipleTracksResponse> {
     return this.http
-      .get<[String]>(`${environment.userAPIBase}/favourites/`)
+      .get<[String]>(`${environment.userAPIBase}/favourites/`, {
+        headers: this.getHeaders(),
+      })
       .pipe(
         mergeMap((favouritesArray) => {
           if (favouritesArray.length > 0) {
@@ -96,7 +112,7 @@ export class MusicDataService {
               mergeMap((token) => {
                 return this.http.get<any>(
                   `https://api.spotify.com/v1/tracks?ids=${favouritesArray.join()}`,
-                  { headers: { Authorization: `Bearer ${token}` } }
+                  { headers: this.getHeaders(token) }
                 );
               })
             );
